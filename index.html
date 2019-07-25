@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="肉体是拿来用的，而不是用来享受的 - 至骚年">
+  <meta name="description" content="Hello ,world!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LILINKUN">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="LILINKUN">
-<meta property="og:description" content="肉体是拿来用的，而不是用来享受的 - 至骚年">
+<meta property="og:description" content="Hello ,world!">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LILINKUN">
-<meta name="twitter:description" content="肉体是拿来用的，而不是用来享受的 - 至骚年">
+<meta name="twitter:description" content="Hello ,world!">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
   
@@ -52,7 +52,7 @@
 		  <h1 class="header-author"><a href="/">LinKun-Li</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">肉体是拿来用的，而不是用来享受的 - 至骚年</p>
+		<p class="header-subtitle">Hello ,world!</p>
 		
 
 		<nav class="header-menu">
@@ -110,7 +110,7 @@
 			  <h1 class="header-author js-header-author">LinKun-Li</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>肉体是拿来用的，而不是用来享受的 - 至骚年<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Hello ,world!<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -152,6 +152,98 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-template-模板函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/25/template-模板函数/">template_ 模板函数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/25/template-模板函数/" class="archive-article-date">
+  	<time datetime="2019-07-25T14:36:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在函数中有些功能相同的函数，但其参数不同需要构造新函数，但c++面向对象的继承和多态机制有效提高了程序的可重用性和可扩充性。提供了模板函数此功能。</p>
+<p>例如swap函数： </p>
+<p>int型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Swap(int &amp; x, int &amp; y)</span><br><span class="line">&#123;</span><br><span class="line">    int tmp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然而要交换两个double型 需要重新构造：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Swap (double &amp; xr double &amp; y)</span><br><span class="line">&#123;</span><br><span class="line">    double tmp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果还要交换两个 char 型变量的值，交换两个 CStudent 类对象的值……都需要再编写 Swap 函数。而这些 Swap 函数除了处理的数据类型不同外，形式上都是一样的。能否只写一遍 Swap 函数，就能用来交换各种类型的变量的值呢？继承和多态显然无法解决这个问题。因此，“模板”的概念就应运而生了。</p>
+<p>函数模板的写法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">template &lt;class 类型参数1, class类型参数2, ...&gt;</span><br><span class="line">返回值类型  模板名(形参表)</span><br><span class="line">&#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中的 class 关键字也可以用 typename 关键字替换，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename 类型参数1, typename 类型参数2, ...&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如下边函数：</p>
+<p>这是一个简单的交换函数及打印函数de 模板函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">template &lt;typename T&gt; //template  关键字，</span><br><span class="line">					  // typename 也可换为 class 作用为暂时                      //放置类型的占位符</span><br><span class="line">                  </span><br><span class="line">void swap1(T&amp; a, T&amp;b) &#123;</span><br><span class="line">	T temp;</span><br><span class="line">	temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line">template &lt;typename T&gt; // 每次定义模板函数需要定义一次</span><br><span class="line">void print(T a,T b) &#123;</span><br><span class="line">	cout &lt;&lt; &quot;a:&quot; &lt;&lt; a &lt;&lt;&quot;  &quot; &lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int a=1, b=1;</span><br><span class="line">	print(a, b);</span><br><span class="line">	swap1(a, b);</span><br><span class="line">	print(a, b);</span><br><span class="line">	string n, m;</span><br><span class="line">	n = &quot;asdf&quot;; m = &quot;zxcv&quot;;</span><br><span class="line">	print(n, m);</span><br><span class="line">	swap1(n, m);</span><br><span class="line">	print(n, m);</span><br><span class="line">	</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">c++基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/25/template-模板函数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-写一篇自己的博客-Typora" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -563,6 +655,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>
