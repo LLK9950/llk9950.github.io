@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件读写 | LILINKUN</title>
+  <title>Tag: java | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、 定义数据流对象指针">
-<meta name="keywords" content="c++基础">
-<meta property="og:type" content="article">
-<meta property="og:title" content="文件读写">
-<meta property="og:url" content="http://yoursite.com/2019/07/27/文件读写/index.html">
+  <meta name="description" content="Hello ,world!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LILINKUN">
+<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
 <meta property="og:site_name" content="LILINKUN">
-<meta property="og:description" content="1、 定义数据流对象指针">
+<meta property="og:description" content="Hello ,world!">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-27T08:28:53.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件读写">
-<meta name="twitter:description" content="1、 定义数据流对象指针">
+<meta name="twitter:title" content="LILINKUN">
+<meta name="twitter:description" content="Hello ,world!">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
   
@@ -165,222 +163,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-文件读写" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      文件读写
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/09/08/java简单入门/" class="archive-article-date">
+  	<time datetime="2019-09-08T11:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/09/08/java简单入门/">java简单入门</a>
     </h1>
   
 
-        
-        <a href="/2019/07/27/文件读写/" class="archive-article-date">
-  	<time datetime="2019-07-27T08:22:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、 定义数据流对象指针</p>
-<a id="more"></a>
-
-<p>对文件进行读写操作首先必须要定义一个数据流对象指针，数据流对象指针有三种类型，它们分别是：</p>
-<p>Ifstream：表示读取文件流，使用的时候必须包含头文件“ifstream”；</p>
-<p>Ofstream：表示文件写入流，使用的时候必须包含头文件“ofstream”；</p>
-<p>Fstream：表示文件读取/写入流，使用的时候必须包含头文件“fstream”；</p>
-<p>2、 打开文件</p>
-<h2 id="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："><a href="#打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：" class="headerlink" title="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："></a>打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void open(const char * filename, ios_base::openmode mode = ios_base::in | ios_base::out)；</span><br><span class="line">void open(const wchar_t *_Filename, ios_base::openmode mode = ios_base::in | ios_base::out, int prot = ios_base::_Openprot)；</span><br></pre></td></tr></table></figure>
-
-<p>参数filename表示文件名，如果该文件在目录中不存在，那么该函数会自动创建该文件；参数mode表示打开方式，这里打开方式有一下四种，如表1，并且这些方式可以以“|”的或的方式组合使用。</p>
-<table>
-<thead>
-<tr>
-<th>ios::in</th>
-<th>为输入(读)而打开文件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ios::out</td>
-<td>为输出(写)而打开文件</td>
-</tr>
-<tr>
-<td>ios::ate</td>
-<td>初始位置：文件尾</td>
-</tr>
-<tr>
-<td>ios::app</td>
-<td>所有输出附加在文件末尾</td>
-</tr>
-<tr>
-<td>ios::trunc</td>
-<td>如果文件已存在则先删除该文件</td>
-</tr>
-<tr>
-<td>ios::binary</td>
-<td>二进制方式</td>
-</tr>
-</tbody></table>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;</span><br><span class="line">#include&lt;ostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct node &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int grade, num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void out_(string name ,int grade ,int num ) &#123;</span><br><span class="line">	ofstream outfile(&quot;D:\\c++.txt&quot;, ios_base::app);//追加模式 ios_base::app;</span><br><span class="line">	if (!outfile) &#123;</span><br><span class="line">		cerr &lt;&lt; &quot;could&apos;t open the file&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		cout &lt;&lt; &quot;ok&quot; &lt;&lt; endl;</span><br><span class="line">		outfile &lt;&lt; name &lt;&lt; &quot;  &quot; &lt;&lt; grade &lt;&lt; &quot;  &quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">void in_(node *stu) &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int g, n,i=0;</span><br><span class="line">	ifstream infile(&quot;D:\\c++.txt&quot;);</span><br><span class="line">	if (!infile) cerr &lt;&lt; &quot;could&apos;n open the file&quot; &lt;&lt; endl;</span><br><span class="line">	else </span><br><span class="line"></span><br><span class="line">		while (infile &gt;&gt; name) &#123;</span><br><span class="line">			stu[i].name = name;</span><br><span class="line">			infile &gt;&gt; g &gt;&gt; n;</span><br><span class="line">			stu[i].grade = g; stu[i].num = n;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	/*string name;         //写操作</span><br><span class="line">	int grade, num;</span><br><span class="line">	while (cin &gt;&gt; name &gt;&gt; grade &gt;&gt; num) &#123;</span><br><span class="line">		out_(name, grade, num);</span><br><span class="line">	&#125;*/</span><br><span class="line"></span><br><span class="line">	node stu[10];       //结构体数组，用于存储读取到的数据；</span><br><span class="line">	in_(stu);          //读操作</span><br><span class="line">	for (auto &amp;b : stu) &#123;</span><br><span class="line">		cout &lt;&lt; b.name &lt;&lt; &quot; &quot; &lt;&lt; b.grade &lt;&lt; &quot; &quot; &lt;&lt; b.num &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">c++基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/27/文件读写/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/08/java简单入门/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java简单入门
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/26/code/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">code</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -403,9 +239,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

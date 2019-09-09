@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件读写 | LILINKUN</title>
+  <title>python小问题 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、 定义数据流对象指针">
-<meta name="keywords" content="c++基础">
+  <meta name="description" content="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow怎么破！！">
+<meta name="keywords" content="tensorflow&#x2F;python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件读写">
-<meta property="og:url" content="http://yoursite.com/2019/07/27/文件读写/index.html">
+<meta property="og:title" content="python小问题">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/python小问题/index.html">
 <meta property="og:site_name" content="LILINKUN">
-<meta property="og:description" content="1、 定义数据流对象指针">
+<meta property="og:description" content="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow怎么破！！">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-27T08:28:53.671Z">
+<meta property="og:updated_time" content="2019-09-09T14:44:31.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件读写">
-<meta name="twitter:description" content="1、 定义数据流对象指针">
+<meta name="twitter:title" content="python小问题">
+<meta name="twitter:description" content="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow怎么破！！">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
   
@@ -165,68 +165,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-文件读写" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python小问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件读写
+      python小问题
     </h1>
   
 
         
-        <a href="/2019/07/27/文件读写/" class="archive-article-date">
-  	<time datetime="2019-07-27T08:22:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
+        <a href="/2019/09/09/python小问题/" class="archive-article-date">
+  	<time datetime="2019-09-09T14:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、 定义数据流对象指针</p>
+        <h1 id="ubuntu-下安装完tensorflow-后-import-提示-no-module-named-tensorflow"><a href="#ubuntu-下安装完tensorflow-后-import-提示-no-module-named-tensorflow" class="headerlink" title="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow"></a>ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow</h1><p>怎么破！！</p>
 <a id="more"></a>
 
-<p>对文件进行读写操作首先必须要定义一个数据流对象指针，数据流对象指针有三种类型，它们分别是：</p>
-<p>Ifstream：表示读取文件流，使用的时候必须包含头文件“ifstream”；</p>
-<p>Ofstream：表示文件写入流，使用的时候必须包含头文件“ofstream”；</p>
-<p>Fstream：表示文件读取/写入流，使用的时候必须包含头文件“fstream”；</p>
-<p>2、 打开文件</p>
-<h2 id="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："><a href="#打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：" class="headerlink" title="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："></a>打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void open(const char * filename, ios_base::openmode mode = ios_base::in | ios_base::out)；</span><br><span class="line">void open(const wchar_t *_Filename, ios_base::openmode mode = ios_base::in | ios_base::out, int prot = ios_base::_Openprot)；</span><br></pre></td></tr></table></figure>
+<p>看了好多博客，发现各种情况都有，复杂的啊！很是僵硬。</p>
+<p>有的说  <a href="https://blog.csdn.net/qq_31747765/article/details/80061150" target="_blank" rel="noopener">环境变量问题</a></p>
+<p>很是硬核，原谅我的才学疏浅，折腾了一下午硬是没弄好但此过程中发现我的Ubuntu 目录下有python2.7 和3.6两个版本</p>
+<h4 id="重点来了"><a href="#重点来了" class="headerlink" title="重点来了"></a>重点来了</h4><p>然后就想着用3.6版本的试下 翻找很多博客</p>
+<p><a href="https://blog.csdn.net/lkh1992/article/details/83539306" target="_blank" rel="noopener">Linux下安装python3.6和2.7版本，如何将python改为默认的2.7版本的方法</a></p>
+<p>输入 <strong>python</strong>查看当前版本命令</p>
+<p>按<strong>Ctrl+D</strong>退出python命令行</p>
+<p>输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf/python-3.6</span><br></pre></td></tr></table></figure>
 
-<p>参数filename表示文件名，如果该文件在目录中不存在，那么该函数会自动创建该文件；参数mode表示打开方式，这里打开方式有一下四种，如表1，并且这些方式可以以“|”的或的方式组合使用。</p>
-<table>
-<thead>
-<tr>
-<th>ios::in</th>
-<th>为输入(读)而打开文件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ios::out</td>
-<td>为输出(写)而打开文件</td>
-</tr>
-<tr>
-<td>ios::ate</td>
-<td>初始位置：文件尾</td>
-</tr>
-<tr>
-<td>ios::app</td>
-<td>所有输出附加在文件末尾</td>
-</tr>
-<tr>
-<td>ios::trunc</td>
-<td>如果文件已存在则先删除该文件</td>
-</tr>
-<tr>
-<td>ios::binary</td>
-<td>二进制方式</td>
-</tr>
-</tbody></table>
-<p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;</span><br><span class="line">#include&lt;ostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct node &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int grade, num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void out_(string name ,int grade ,int num ) &#123;</span><br><span class="line">	ofstream outfile(&quot;D:\\c++.txt&quot;, ios_base::app);//追加模式 ios_base::app;</span><br><span class="line">	if (!outfile) &#123;</span><br><span class="line">		cerr &lt;&lt; &quot;could&apos;t open the file&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		cout &lt;&lt; &quot;ok&quot; &lt;&lt; endl;</span><br><span class="line">		outfile &lt;&lt; name &lt;&lt; &quot;  &quot; &lt;&lt; grade &lt;&lt; &quot;  &quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">void in_(node *stu) &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int g, n,i=0;</span><br><span class="line">	ifstream infile(&quot;D:\\c++.txt&quot;);</span><br><span class="line">	if (!infile) cerr &lt;&lt; &quot;could&apos;n open the file&quot; &lt;&lt; endl;</span><br><span class="line">	else </span><br><span class="line"></span><br><span class="line">		while (infile &gt;&gt; name) &#123;</span><br><span class="line">			stu[i].name = name;</span><br><span class="line">			infile &gt;&gt; g &gt;&gt; n;</span><br><span class="line">			stu[i].grade = g; stu[i].num = n;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	/*string name;         //写操作</span><br><span class="line">	int grade, num;</span><br><span class="line">	while (cin &gt;&gt; name &gt;&gt; grade &gt;&gt; num) &#123;</span><br><span class="line">		out_(name, grade, num);</span><br><span class="line">	&#125;*/</span><br><span class="line"></span><br><span class="line">	node stu[10];       //结构体数组，用于存储读取到的数据；</span><br><span class="line">	in_(stu);          //读操作</span><br><span class="line">	for (auto &amp;b : stu) &#123;</span><br><span class="line">		cout &lt;&lt; b.name &lt;&lt; &quot; &quot; &lt;&lt; b.grade &lt;&lt; &quot; &quot; &lt;&lt; b.num &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按<strong>Enter</strong>确认<br>输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
+<p>输入命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3.6</span><br></pre></td></tr></table></figure>
+
+<p>按<strong>Y</strong>确认</p>
+<p><strong>调整</strong>Python3的<strong>优先级</strong>，使得3.6优先级较高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>更改默认值</strong>，python默认为Python2，现在修改为Python3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100</span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150</span><br></pre></td></tr></table></figure>
+
+<p>此时再输入命令python</p>
+<p>就可以发现是运行的python3.6了</p>
+<h4 id="神奇的是再次运行-不会再报错了"><a href="#神奇的是再次运行-不会再报错了" class="headerlink" title="神奇的是再次运行 不会再报错了"></a>神奇的是再次运行 不会再报错了</h4><p>只不过python2和3的语法不太一样</p>
+<p>这就比较尴尬了</p>
 
       
 
@@ -266,7 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">c++基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">tensorflow/python</a>
         		</li>
       		
 		</ul>
@@ -322,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/27/文件读写/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/09/python小问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -336,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/08/java简单入门/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java简单入门
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/26/code/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">code</div>
+    <a href="/2019/09/08/java简单入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java简单入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
