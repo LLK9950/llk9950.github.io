@@ -157,27 +157,86 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-算法复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/26/text/">text</a>
+      <a class="article-title" href="/2019/12/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/">算法复习</a>
     </h1>
   
 
         
-        <a href="/2019/10/26/text/" class="archive-article-date">
-  	<time datetime="2019-10-26T07:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+        <a href="/2019/12/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2019-12-27T06:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="This-is-text-file"><a href="#This-is-text-file" class="headerlink" title="This is text file"></a>This is text file</h1><p>Inorder to text my file and progrem could updown it to github.</p>
+        <h1 id="分治与递归"><a href="#分治与递归" class="headerlink" title="分治与递归"></a>分治与递归</h1><h2 id="分支的实质"><a href="#分支的实质" class="headerlink" title="分支的实质"></a>分支的实质</h2><p>​        子问题的划分与合并，将一个难以解决的大问题分割成一些规模较小的相同问题，利用这些子问题的解求出原问题的解。</p>
+<p>​        递归是实现分治的一个必要手段。</p>
+<h2 id="分治的基本思想"><a href="#分治的基本思想" class="headerlink" title="分治的基本思想"></a>分治的基本思想</h2><p>​        将一个规模为 n 的问题分解为  k 个规模较小的子问题，这些子问题相互独立且与原问题相同，递归地求解这些子问题，然后将各子问题的解合并得到原问题的解。</p>
+<pre><code>+ 子问题与原问题的性质相同
++  子问题的求解彼此独立    
+* 划分子问题的规模尽可能均衡</code></pre><p>$$<br>T(n)=O(1), n=1;<br>$$</p>
+<p>$$<br>T(n)=kT(n/m)+f(n),n&gt;1;<br>$$</p>
+<ul>
+<li>时间复杂性公式<img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577429611589.png" alt="1577429611589"></li>
+</ul>
+<pre><code>## 适用问题</code></pre><p>​        子问题独立 与原问题性质相同</p>
+<h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//二分搜索</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">int</span> <span class="title">BinarySearch</span>(<span class="title">Type</span> <span class="title">a</span>[], <span class="title">const</span> <span class="title">Type</span>&amp; <span class="title">x</span>, <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>; <span class="keyword">int</span> right = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left&lt;=right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> middle = (left + right) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (x == a[middle]) &#123;</span><br><span class="line">			<span class="keyword">return</span> middle;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (x &gt; a[middle]) &#123;</span><br><span class="line">			left = middle + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			right = middle - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//二分搜索：递归</span><br><span class="line">template&lt;class Type&gt;</span><br><span class="line">int BinarySearch(Type a[], int left, int right, const Type&amp; x) &#123;</span><br><span class="line">	if (left&gt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	int middle = left + (right - left) / 2;</span><br><span class="line">	if (x == a[middle]) &#123;</span><br><span class="line">		return middle;</span><br><span class="line">	&#125;</span><br><span class="line">	if (x &gt; a[middle]) &#123;</span><br><span class="line">		return BinarySearch(a, middle + 1, right, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		return BinarySearch(a, left, middle - 1, x);</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>$$<br>T(n)=O(log n)<br>$$</p>
+<h3 id="合并排序"><a href="#合并排序" class="headerlink" title="合并排序"></a>合并排序</h3><p><strong>问题</strong> ：对 n  个元素进行排序</p>
+<ul>
+<li>将待排序的元素分成个数相同的两组；<ul>
+<li>分别进行排序； <ul>
+<li>将排好序的两组元素合并。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//合并排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void MergeSort(Type a[], int left, int right) &#123;</span><br><span class="line">	if (left&lt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		int i = (left + right) / 2;</span><br><span class="line">		MergeSort(a, left, i);</span><br><span class="line">		MergeSort(a, i + 1, right);</span><br><span class="line">		Merge(a, b, left, i, right);</span><br><span class="line">		copy(a, b, left, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//合并排序的迭代算法</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void mergepass(Type a[], Type b[], int s, int n) &#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	while (i &lt;= n - 2 * s) &#123;</span><br><span class="line">		Merge(x, y, i.i + s - 1, i + 2 * s - 1);</span><br><span class="line">		i = i + 2 * s;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i + s &lt; n) &#123;</span><br><span class="line">		Merge(x,y,i,i+s-1,n-1)</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		for (int j = i; j &lt; n - 1; j++) &#123;</span><br><span class="line">			y[j] = x[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="合并排序的算法分析"><a href="#合并排序的算法分析" class="headerlink" title="合并排序的算法分析"></a>合并排序的算法分析</h4><ul>
+<li><p>将规模为  n  的问题分解为两个规模为 n/2    的问题</p>
+</li>
+<li><p>合并问题的复杂度为<code>f(n)=O(n)</code></p>
+</li>
+<li><p>根据分治算法的复杂性公式，合并排序的复杂性为<code>O(nlogn)</code></p>
+<p><img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577431422544.png" alt="1577431422544"></p>
+</li>
+</ul>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><ul>
+<li><p>分解：以a[p]  为基准将数列    a[p:r]  划分为两段<br><img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577432058418.png" alt="1577432058418"></p>
+</li>
+<li><p>分别对两段递归调用快速排序</p>
+</li>
+<li><p>就地排序，不需要合并</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//快速排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void QuickSort(Type a[], int p, int r) &#123;</span><br><span class="line">	if (p &lt; r) &#123;</span><br><span class="line">		int q = Partition(a, p, r);</span><br><span class="line">		QuickSort(a, p, q - 1);</span><br><span class="line">		QuickSort(a, q + 1, r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">int Partition(Type a[], int p, int r) &#123;</span><br><span class="line">	int i = p, j = r + 1;</span><br><span class="line">	Type x = a[p];</span><br><span class="line">	while (true) &#123;//分解</span><br><span class="line">		while (a[++i] &lt; x &amp;&amp; i &lt; r);</span><br><span class="line">		while (a[--j] &gt; x);</span><br><span class="line">		if(i=j)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		Swap(a[i], a[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	a[p] = a[j];//基准</span><br><span class="line">	a[j] = x;</span><br><span class="line">	return j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="快速排序的算法分析"><a href="#快速排序的算法分析" class="headerlink" title="快速排序的算法分析"></a>快速排序的算法分析</h4></li>
+<li><p>子问题的规模与基准元素的选取（划分是否对称）有关，即与输入有关。</p>
+</li>
+<li><p>最坏情况下的渐近复杂性为<code>O(n^2)</code></p>
+<p><img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577432649924.png" alt="1577432649924"></p>
+</li>
+<li><p>最好情况下的渐近复杂性为<code>O(nlogn)</code></p>
+</li>
+</ul>
+<p><img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577432666266.png" alt="1577432666266"></p>
+<h2 id="常见的排序算法"><a href="#常见的排序算法" class="headerlink" title="常见的排序算法"></a>常见的排序算法</h2><p><img src="C:%5Chexo%5Csource_posts%5Cassets%5C1577432712887.png" alt="1577432712887"></p>
 
       
 
@@ -186,11 +245,100 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/26/text/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="title-java-1" class="article article-type-title  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/java-1/">java_.1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/15/java-1/" class="archive-article-date">
+  	<time datetime="2019-12-15T05:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> <strong>类：</strong>class。 <strong>对象：</strong>Object,instance(实例)。</p>
+<p>某个类的对象，某个类的实例。 </p>
+<p>1.对象是具体的事物;类是对对象的抽象;</p>
+<p>2.类可以看成一类对象的模板，对象可以看成该类的一个具体实例。</p>
+<p>3.类是用于描述同一类型的对象的一个抽象概念，类中定义了这一类对象所应具有的共同的属性、方法。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/15/java-1/">展开全文 >></a>
         </p>
       
 
@@ -849,90 +997,6 @@
 
 
   
-    <article id="post-linux-常用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/04/linux-%E5%B8%B8%E7%94%A8/">linux 常用 </a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/04/linux-%E5%B8%B8%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2019-06-04T14:57:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>shell --unix 系统</code></p>
-<p><code>bash --linux系统</code></p>
-<h1 id="1、文件、目录相关"><a href="#1、文件、目录相关" class="headerlink" title="1、文件、目录相关"></a>1、文件、目录相关</h1><p>cd：切换目录 (#cd /sbin….）</p>
-<p>mkdir：创建目录 (#mkdir test)</p>
-<p> rm：删除文件或者目录(#rm -fr test)</p>
-<p> cp：拷贝文件或者目录(#cp -fr src dst)</p>
-<p> mv：移动文件或者目录（#mv -f src dst）</p>
-<p> ll/ls：查看当前目录的文件内容</p>
-<p> cat：顺序查看文件内容(倒序查是tac)(#cat filename)</p>
-        
-          <a class="article-more-a" href="/2019/06/04/linux-%E5%B8%B8%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/04/linux-%E5%B8%B8%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1051,15 +1115,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">黑谝</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">黑谝</a>
               </li>
              
               <li class="article-tag-list-item">
