@@ -9,14 +9,16 @@
   <title>Java异常处理 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Excpetion–异常的捕获及处理捕获并处理错误：IOException,NumberFormatException... 修复程序：NullPointerException,IndexOutOfBoundsException... 123456789101112131415public static void main(String[] args)&amp;#123;	try&amp;#123;	...	..">
-<meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java异常处理">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;15&#x2F;Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="LILINKUN">
 <meta property="og:description" content="Excpetion–异常的捕获及处理捕获并处理错误：IOException,NumberFormatException... 修复程序：NullPointerException,IndexOutOfBoundsException... 123456789101112131415public static void main(String[] args)&amp;#123;	try&amp;#123;	...	..">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-18T08:36:24.920Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-15T05:54:39.000Z">
+<meta property="article:modified_time" content="2019-09-18T08:36:24.920Z">
+<meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
@@ -35,7 +37,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -78,7 +80,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -123,7 +125,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -181,7 +183,7 @@
       
         <h3 id="Excpetion–异常的捕获及处理"><a href="#Excpetion–异常的捕获及处理" class="headerlink" title="Excpetion–异常的捕获及处理"></a>Excpetion–异常的捕获及处理</h3><p>捕获并处理错误：<code>IOException,NumberFormatException...</code></p>
 <p>修复程序：<code>NullPointerException,IndexOutOfBoundsException...</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">	try&#123;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&#125;catch(IOException e)&#123;//子类必须写前边</span><br><span class="line">		System.out.println(e);</span><br><span class="line">	&#125;catch(NumberFormatException e)&#123;</span><br><span class="line">		System.out.println(e);</span><br><span class="line">	&#125;finally&#123;</span><br><span class="line">		System.out.println(&quot;END&quot;);//保证语句块有无异常都会执行</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//出现异常也可通过throw 抛向上一层中</span><br><span class="line">//最后一层捕捉异常在main函数中</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">	try&#123;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	&#125;catch(IOException e)&#123;&#x2F;&#x2F;子类必须写前边</span><br><span class="line">		System.out.println(e);</span><br><span class="line">	&#125;catch(NumberFormatException e)&#123;</span><br><span class="line">		System.out.println(e);</span><br><span class="line">	&#125;finally&#123;</span><br><span class="line">		System.out.println(&quot;END&quot;);&#x2F;&#x2F;保证语句块有无异常都会执行</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;出现异常也可通过throw 抛向上一层中</span><br><span class="line">&#x2F;&#x2F;最后一层捕捉异常在main函数中</span><br></pre></td></tr></table></figure>
 
 <p><code>printStackTrace()可以打印异常的传播站</code></p>
 <p>在finally中抛出异常会覆盖掉先前抛出的异常</p>
@@ -470,11 +472,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +484,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>

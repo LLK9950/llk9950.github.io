@@ -9,14 +9,16 @@
   <title>code | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="斐波那契数列递归算法+优化（利用动态存储）">
-<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="code">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;07&#x2F;26&#x2F;code&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/26/code/index.html">
 <meta property="og:site_name" content="LILINKUN">
 <meta property="og:description" content="斐波那契数列递归算法+优化（利用动态存储）">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T08:28:55.650Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-07-26T01:29:23.000Z">
+<meta property="article:modified_time" content="2019-07-27T08:28:55.650Z">
+<meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
@@ -35,7 +37,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -78,7 +80,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -123,7 +125,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -182,7 +184,7 @@
         <p>斐波那契数列递归算法+优化（利用动态存储）</p>
 <a id="more"></a>
 <p>$$<br>F[x]=F[x-1]+F[x-2]<br>$$<br>1  1  2   3    5    8    13    21    …</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 50 + 5;</span><br><span class="line">long long int arr[maxn];// 防止int存储不下采用long long 型</span><br><span class="line"></span><br><span class="line">long long int  fib(int s) &#123;</span><br><span class="line">	if (arr[s] != 0) return arr[s];</span><br><span class="line">	return arr[s] = fib(s - 1) + fib(s - 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	memset(arr, 0, sizeof arr);</span><br><span class="line">	arr[0] = 1; arr[1] = 1;</span><br><span class="line">	int t;</span><br><span class="line">	while (cin&gt;&gt;t)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;fib(t)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn &#x3D; 50 + 5;</span><br><span class="line">long long int arr[maxn];&#x2F;&#x2F; 防止int存储不下采用long long 型</span><br><span class="line"></span><br><span class="line">long long int  fib(int s) &#123;</span><br><span class="line">	if (arr[s] !&#x3D; 0) return arr[s];</span><br><span class="line">	return arr[s] &#x3D; fib(s - 1) + fib(s - 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	memset(arr, 0, sizeof arr);</span><br><span class="line">	arr[0] &#x3D; 1; arr[1] &#x3D; 1;</span><br><span class="line">	int t;</span><br><span class="line">	while (cin&gt;&gt;t)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;fib(t)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -455,11 +457,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,11 +469,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>

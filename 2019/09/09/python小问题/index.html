@@ -9,14 +9,16 @@
   <title>python小问题 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow怎么破！！">
-<meta name="keywords" content="tensorflow&#x2F;python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python小问题">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;09&#x2F;09&#x2F;python%E5%B0%8F%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/python%E5%B0%8F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="LILINKUN">
 <meta property="og:description" content="ubuntu 下安装完tensorflow 后 import 提示 no module named tensorflow怎么破！！">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-15T06:14:39.350Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-09T14:24:28.000Z">
+<meta property="article:modified_time" content="2019-09-15T06:14:39.350Z">
+<meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="tensorflow&#x2F;python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
@@ -35,7 +37,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -78,7 +80,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -123,7 +125,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -190,7 +192,7 @@
 <p>输入 <strong>python</strong>查看当前版本命令</p>
 <p>按<strong>Ctrl+D</strong>退出python命令行</p>
 <p>输入命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf/python-3.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf&#x2F;python-3.6</span><br></pre></td></tr></table></figure>
 
 <p>按<strong>Enter</strong>确认<br>输入命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
@@ -200,10 +202,10 @@
 
 <p>按<strong>Y</strong>确认</p>
 <p><strong>调整</strong>Python3的<strong>优先级</strong>，使得3.6优先级较高</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python3 python3 &#x2F;usr&#x2F;bin&#x2F;python3.6 1</span><br></pre></td></tr></table></figure>
 
 <p><strong>更改默认值</strong>，python默认为Python2，现在修改为Python3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100</span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python python &#x2F;usr&#x2F;bin&#x2F;python2 100</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;python python &#x2F;usr&#x2F;bin&#x2F;python3 150</span><br></pre></td></tr></table></figure>
 
 <p>此时再输入命令python</p>
 <p>就可以发现是运行的python3.6了</p>
@@ -486,11 +488,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>

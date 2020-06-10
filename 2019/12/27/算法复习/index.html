@@ -9,20 +9,22 @@
   <title>算法复习 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="分治与递归分支的实质​        子问题的划分与合并，将一个难以解决的大问题分割成一些规模较小的相同问题，利用这些子问题的解求出原问题的解。 ​        递归是实现分治的一个必要手段。 分治的基本思想​        将一个规模为 n 的问题分解为  k 个规模较小的子问题，这些子问题相互独立且与原问题相同，递归地求解这些子问题，然后将各子问题的解合并得到原问题的解。 + 子问题与原问题">
-<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法复习">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;27&#x2F;%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2019/12/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="LILINKUN">
 <meta property="og:description" content="分治与递归分支的实质​        子问题的划分与合并，将一个难以解决的大问题分割成一些规模较小的相同问题，利用这些子问题的解求出原问题的解。 ​        递归是实现分治的一个必要手段。 分治的基本思想​        将一个规模为 n 的问题分解为  k 个规模较小的子问题，这些子问题相互独立且与原问题相同，递归地求解这些子问题，然后将各子问题的解合并得到原问题的解。 + 子问题与原问题">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577429611589.png">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577431422544.png">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577432058418.png">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577432649924.png">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577432666266.png">
 <meta property="og:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577432712887.png">
-<meta property="og:updated_time" content="2019-12-27T07:45:20.228Z">
+<meta property="article:published_time" content="2019-12-27T06:36:40.000Z">
+<meta property="article:modified_time" content="2019-12-27T07:45:20.228Z">
+<meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:%5Chexo%5Csource_posts%5Cassets%5C1577429611589.png">
   
@@ -42,7 +44,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -85,7 +87,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -130,7 +132,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -199,7 +201,7 @@
 <pre><code>## 适用问题</code></pre><p>​        子问题独立 与原问题性质相同</p>
 <h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//二分搜索</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">Type</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">int</span> <span class="title">BinarySearch</span>(<span class="title">Type</span> <span class="title">a</span>[], <span class="title">const</span> <span class="title">Type</span>&amp; <span class="title">x</span>, <span class="title">int</span> <span class="title">n</span>) &#123;</span></span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>; <span class="keyword">int</span> right = n - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left&lt;=right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> middle = (left + right) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (x == a[middle]) &#123;</span><br><span class="line">			<span class="keyword">return</span> middle;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (x &gt; a[middle]) &#123;</span><br><span class="line">			left = middle + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			right = middle - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//二分搜索：递归</span><br><span class="line">template&lt;class Type&gt;</span><br><span class="line">int BinarySearch(Type a[], int left, int right, const Type&amp; x) &#123;</span><br><span class="line">	if (left&gt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	int middle = left + (right - left) / 2;</span><br><span class="line">	if (x == a[middle]) &#123;</span><br><span class="line">		return middle;</span><br><span class="line">	&#125;</span><br><span class="line">	if (x &gt; a[middle]) &#123;</span><br><span class="line">		return BinarySearch(a, middle + 1, right, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		return BinarySearch(a, left, middle - 1, x);</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;二分搜索：递归</span><br><span class="line">template&lt;class Type&gt;</span><br><span class="line">int BinarySearch(Type a[], int left, int right, const Type&amp; x) &#123;</span><br><span class="line">	if (left&gt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	int middle &#x3D; left + (right - left) &#x2F; 2;</span><br><span class="line">	if (x &#x3D;&#x3D; a[middle]) &#123;</span><br><span class="line">		return middle;</span><br><span class="line">	&#125;</span><br><span class="line">	if (x &gt; a[middle]) &#123;</span><br><span class="line">		return BinarySearch(a, middle + 1, right, x);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		return BinarySearch(a, left, middle - 1, x);</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>$$<br>T(n)=O(log n)<br>$$</p>
 <h3 id="合并排序"><a href="#合并排序" class="headerlink" title="合并排序"></a>合并排序</h3><p><strong>问题</strong> ：对 n  个元素进行排序</p>
@@ -212,11 +214,11 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//合并排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void MergeSort(Type a[], int left, int right) &#123;</span><br><span class="line">	if (left&lt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		int i = (left + right) / 2;</span><br><span class="line">		MergeSort(a, left, i);</span><br><span class="line">		MergeSort(a, i + 1, right);</span><br><span class="line">		Merge(a, b, left, i, right);</span><br><span class="line">		copy(a, b, left, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void MergeSort(Type a[], int left, int right) &#123;</span><br><span class="line">	if (left&lt;right)</span><br><span class="line">	&#123;</span><br><span class="line">		int i &#x3D; (left + right) &#x2F; 2;</span><br><span class="line">		MergeSort(a, left, i);</span><br><span class="line">		MergeSort(a, i + 1, right);</span><br><span class="line">		Merge(a, b, left, i, right);</span><br><span class="line">		copy(a, b, left, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//合并排序的迭代算法</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void mergepass(Type a[], Type b[], int s, int n) &#123;</span><br><span class="line">	int i = 0;</span><br><span class="line">	while (i &lt;= n - 2 * s) &#123;</span><br><span class="line">		Merge(x, y, i.i + s - 1, i + 2 * s - 1);</span><br><span class="line">		i = i + 2 * s;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i + s &lt; n) &#123;</span><br><span class="line">		Merge(x,y,i,i+s-1,n-1)</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		for (int j = i; j &lt; n - 1; j++) &#123;</span><br><span class="line">			y[j] = x[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并排序的迭代算法</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void mergepass(Type a[], Type b[], int s, int n) &#123;</span><br><span class="line">	int i &#x3D; 0;</span><br><span class="line">	while (i &lt;&#x3D; n - 2 * s) &#123;</span><br><span class="line">		Merge(x, y, i.i + s - 1, i + 2 * s - 1);</span><br><span class="line">		i &#x3D; i + 2 * s;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i + s &lt; n) &#123;</span><br><span class="line">		Merge(x,y,i,i+s-1,n-1)</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		for (int j &#x3D; i; j &lt; n - 1; j++) &#123;</span><br><span class="line">			y[j] &#x3D; x[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="合并排序的算法分析"><a href="#合并排序的算法分析" class="headerlink" title="合并排序的算法分析"></a>合并排序的算法分析</h4><ul>
 <li><p>将规模为  n  的问题分解为两个规模为 n/2    的问题</p>
@@ -233,7 +235,7 @@
 <li><p>分别对两段递归调用快速排序</p>
 </li>
 <li><p>就地排序，不需要合并</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//快速排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void QuickSort(Type a[], int p, int r) &#123;</span><br><span class="line">	if (p &lt; r) &#123;</span><br><span class="line">		int q = Partition(a, p, r);</span><br><span class="line">		QuickSort(a, p, q - 1);</span><br><span class="line">		QuickSort(a, q + 1, r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">int Partition(Type a[], int p, int r) &#123;</span><br><span class="line">	int i = p, j = r + 1;</span><br><span class="line">	Type x = a[p];</span><br><span class="line">	while (true) &#123;//分解</span><br><span class="line">		while (a[++i] &lt; x &amp;&amp; i &lt; r);</span><br><span class="line">		while (a[--j] &gt; x);</span><br><span class="line">		if(i=j)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		Swap(a[i], a[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	a[p] = a[j];//基准</span><br><span class="line">	a[j] = x;</span><br><span class="line">	return j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;&#x2F;快速排序</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">void QuickSort(Type a[], int p, int r) &#123;</span><br><span class="line">	if (p &lt; r) &#123;</span><br><span class="line">		int q &#x3D; Partition(a, p, r);</span><br><span class="line">		QuickSort(a, p, q - 1);</span><br><span class="line">		QuickSort(a, q + 1, r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">template &lt;class Type&gt;</span><br><span class="line">int Partition(Type a[], int p, int r) &#123;</span><br><span class="line">	int i &#x3D; p, j &#x3D; r + 1;</span><br><span class="line">	Type x &#x3D; a[p];</span><br><span class="line">	while (true) &#123;&#x2F;&#x2F;分解</span><br><span class="line">		while (a[++i] &lt; x &amp;&amp; i &lt; r);</span><br><span class="line">		while (a[--j] &gt; x);</span><br><span class="line">		if(i&#x3D;j)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		Swap(a[i], a[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	a[p] &#x3D; a[j];&#x2F;&#x2F;基准</span><br><span class="line">	a[j] &#x3D; x;</span><br><span class="line">	return j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="快速排序的算法分析"><a href="#快速排序的算法分析" class="headerlink" title="快速排序的算法分析"></a>快速排序的算法分析</h4></li>
 <li><p>子问题的规模与基准元素的选取（划分是否对称）有关，即与输入有关。</p>
@@ -354,6 +356,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          计算机网络
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/15/java-1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -508,11 +519,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,11 +531,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>

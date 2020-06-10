@@ -9,14 +9,16 @@
   <title>文件读写 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1、 定义数据流对象指针">
-<meta name="keywords" content="c++基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件读写">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;07&#x2F;27&#x2F;%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99&#x2F;index.html">
+<meta property="og:url" content="http://yoursite.com/2019/07/27/%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/index.html">
 <meta property="og:site_name" content="LILINKUN">
 <meta property="og:description" content="1、 定义数据流对象指针">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T08:28:53.671Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-07-27T08:22:14.000Z">
+<meta property="article:modified_time" content="2019-07-27T08:28:53.671Z">
+<meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="c++基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
@@ -35,7 +37,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -78,7 +80,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -123,7 +125,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/llk9950.github.io" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -187,7 +189,7 @@
 <p>Ofstream：表示文件写入流，使用的时候必须包含头文件“ofstream”；</p>
 <p>Fstream：表示文件读取/写入流，使用的时候必须包含头文件“fstream”；</p>
 <p>2、 打开文件</p>
-<h2 id="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："><a href="#打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：" class="headerlink" title="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："></a>打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void open(const char * filename, ios_base::openmode mode = ios_base::in | ios_base::out)；</span><br><span class="line">void open(const wchar_t *_Filename, ios_base::openmode mode = ios_base::in | ios_base::out, int prot = ios_base::_Openprot)；</span><br></pre></td></tr></table></figure>
+<h2 id="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："><a href="#打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：" class="headerlink" title="打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例："></a>打开文件可以调用两个函数，其一是使用open函数，其二是使用数据流对象的构造函数。这两个函数调用的参数基本上一致的，以open函数为例：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void open(const char * filename, ios_base::openmode mode &#x3D; ios_base::in | ios_base::out)；</span><br><span class="line">void open(const wchar_t *_Filename, ios_base::openmode mode &#x3D; ios_base::in | ios_base::out, int prot &#x3D; ios_base::_Openprot)；</span><br></pre></td></tr></table></figure>
 
 <p>参数filename表示文件名，如果该文件在目录中不存在，那么该函数会自动创建该文件；参数mode表示打开方式，这里打开方式有一下四种，如表1，并且这些方式可以以“|”的或的方式组合使用。</p>
 <table>
@@ -219,7 +221,7 @@
 </tr>
 </tbody></table>
 <p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;</span><br><span class="line">#include&lt;ostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct node &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int grade, num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void out_(string name ,int grade ,int num ) &#123;</span><br><span class="line">	ofstream outfile(&quot;D:\\c++.txt&quot;, ios_base::app);//追加模式 ios_base::app;</span><br><span class="line">	if (!outfile) &#123;</span><br><span class="line">		cerr &lt;&lt; &quot;could&apos;t open the file&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		cout &lt;&lt; &quot;ok&quot; &lt;&lt; endl;</span><br><span class="line">		outfile &lt;&lt; name &lt;&lt; &quot;  &quot; &lt;&lt; grade &lt;&lt; &quot;  &quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">void in_(node *stu) &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int g, n,i=0;</span><br><span class="line">	ifstream infile(&quot;D:\\c++.txt&quot;);</span><br><span class="line">	if (!infile) cerr &lt;&lt; &quot;could&apos;n open the file&quot; &lt;&lt; endl;</span><br><span class="line">	else </span><br><span class="line"></span><br><span class="line">		while (infile &gt;&gt; name) &#123;</span><br><span class="line">			stu[i].name = name;</span><br><span class="line">			infile &gt;&gt; g &gt;&gt; n;</span><br><span class="line">			stu[i].grade = g; stu[i].num = n;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	/*string name;         //写操作</span><br><span class="line">	int grade, num;</span><br><span class="line">	while (cin &gt;&gt; name &gt;&gt; grade &gt;&gt; num) &#123;</span><br><span class="line">		out_(name, grade, num);</span><br><span class="line">	&#125;*/</span><br><span class="line"></span><br><span class="line">	node stu[10];       //结构体数组，用于存储读取到的数据；</span><br><span class="line">	in_(stu);          //读操作</span><br><span class="line">	for (auto &amp;b : stu) &#123;</span><br><span class="line">		cout &lt;&lt; b.name &lt;&lt; &quot; &quot; &lt;&lt; b.grade &lt;&lt; &quot; &quot; &lt;&lt; b.num &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;fstream&gt;</span><br><span class="line">#include&lt;ostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">struct node &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int grade, num;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void out_(string name ,int grade ,int num ) &#123;</span><br><span class="line">	ofstream outfile(&quot;D:\\c++.txt&quot;, ios_base::app);&#x2F;&#x2F;追加模式 ios_base::app;</span><br><span class="line">	if (!outfile) &#123;</span><br><span class="line">		cerr &lt;&lt; &quot;could&#39;t open the file&quot; &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		cout &lt;&lt; &quot;ok&quot; &lt;&lt; endl;</span><br><span class="line">		outfile &lt;&lt; name &lt;&lt; &quot;  &quot; &lt;&lt; grade &lt;&lt; &quot;  &quot; &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">void in_(node *stu) &#123;</span><br><span class="line">	string name;</span><br><span class="line">	int g, n,i&#x3D;0;</span><br><span class="line">	ifstream infile(&quot;D:\\c++.txt&quot;);</span><br><span class="line">	if (!infile) cerr &lt;&lt; &quot;could&#39;n open the file&quot; &lt;&lt; endl;</span><br><span class="line">	else </span><br><span class="line"></span><br><span class="line">		while (infile &gt;&gt; name) &#123;</span><br><span class="line">			stu[i].name &#x3D; name;</span><br><span class="line">			infile &gt;&gt; g &gt;&gt; n;</span><br><span class="line">			stu[i].grade &#x3D; g; stu[i].num &#x3D; n;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	&#x2F;*string name;         &#x2F;&#x2F;写操作</span><br><span class="line">	int grade, num;</span><br><span class="line">	while (cin &gt;&gt; name &gt;&gt; grade &gt;&gt; num) &#123;</span><br><span class="line">		out_(name, grade, num);</span><br><span class="line">	&#125;*&#x2F;</span><br><span class="line"></span><br><span class="line">	node stu[10];       &#x2F;&#x2F;结构体数组，用于存储读取到的数据；</span><br><span class="line">	in_(stu);          &#x2F;&#x2F;读操作</span><br><span class="line">	for (auto &amp;b : stu) &#123;</span><br><span class="line">		cout &lt;&lt; b.name &lt;&lt; &quot; &quot; &lt;&lt; b.grade &lt;&lt; &quot; &quot; &lt;&lt; b.num &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -492,11 +494,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +506,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">tensorflow/python</a>
+                <a href="javascript:void(0)" class="js-tag color1">c++基础</a>
               </li>
             
             <div class="clearfix"></div>
