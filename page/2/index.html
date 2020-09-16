@@ -142,6 +142,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-写一篇自己的博客-Typora" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/07/%E5%86%99%E4%B8%80%E7%AF%87%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2-Typora/">写一篇自己的博客-Typora</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/07/%E5%86%99%E4%B8%80%E7%AF%87%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2-Typora/" class="archive-article-date">
+  	<time datetime="2019-06-07T10:33:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、创建文章"><a href="#一、创建文章" class="headerlink" title="一、创建文章"></a>一、创建文章</h1><p>在站点文件夹中打开 git bash，输入如下命令创建文章，其中 title 为文章的标题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>1<br>当输入命令后，就会在 source/_post 文件夹下创建一个文件，命名为：title.md</p>
+<p>这个文件就是将要发布到网站上的原始文件，用于记录文章内容</p>
+<p>下面，我们将要在这个文件中写下我们的第一篇博客</p>
+        
+          <a class="article-more-a" href="/2019/06/07/%E5%86%99%E4%B8%80%E7%AF%87%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2-Typora/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/07/%E5%86%99%E4%B8%80%E7%AF%87%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2-Typora/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-First_Blood" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -281,6 +352,89 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/06/04/linux-%E5%B8%B8%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux_系统编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/04/linux_%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/">linux 系统编程 </a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/04/linux_%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2019-06-04T14:57:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>c库函数</strong></p>
+<p>fopen  fclose fread fwrite fgets fputs fprintf  fscanf …</p>
+<p>返回值：FILE* fp;</p>
+<p>FILE是结构体；包含文件描述符（整型），文件读写指针位置，i/o缓冲区（内存地址）</p>
+<p>Linux系统函数没有缓冲区</p>
+<p>局部变量在栈中 向下增长</p>
+<p>堆在内存中向上增长</p>
+<hr>
+<p>虚拟地址空间：</p>
+<p><img src="C:%5Chexo%5Csource_posts%5Cassets%5Cimage-20200916134238613.png" alt="image-20200916134238613"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/04/linux_%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/">展开全文 >></a>
         </p>
       
 
@@ -495,7 +649,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,6 +658,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">

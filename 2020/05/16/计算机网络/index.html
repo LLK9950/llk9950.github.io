@@ -16,7 +16,7 @@
 <meta property="og:description" content="计算机网络">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-15T16:16:34.574Z">
-<meta property="article:modified_time" content="2020-06-11T01:15:41.278Z">
+<meta property="article:modified_time" content="2020-06-12T13:03:51.172Z">
 <meta property="article:author" content="LINKUN LI">
 <meta property="article:tag" content="net">
 <meta name="twitter:card" content="summary">
@@ -787,7 +787,443 @@
 <p>允许用户利用文件夹组织消息</p>
 <p>IMAP支持跨会话(Session)的用户状态:  文件夹的名字 ； 文件夹与消息ID之间的映射等  </p>
 <hr>
-<h3 id="DNS-应用"><a href="#DNS-应用" class="headerlink" title="DNS 应用"></a>DNS 应用</h3>
+<h3 id="DNS-应用"><a href="#DNS-应用" class="headerlink" title="DNS 应用"></a>DNS 应用</h3><p>（Domain Name System）</p>
+<p><em>处理域名和IP地址之间映射</em></p>
+<h4 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h4><pre><code>* 域名向IP地址的翻译 
+*  主机别名 
+* 邮件服务器别名 
+* 负载均衡：Web服务器</code></pre><p>集中式DNS不可伸缩，容易产生单点失败问题 、 流量问题 、距离问题 、 维护性问题。</p>
+<p><strong>分布式层次式数据库</strong></p>
+<p>例如：</p>
+<p>​    客户端想要查询<a href="http://www.amazon.com的IP：">www.amazon.com的IP：</a> </p>
+<pre><code>* 客户端查询根服务器，找到com域名解析服务器 
+* 客户端查询com域名解析服务器，找到amazon.com域名解析服务器 
+*  客户端查询amazon.com域名解析服务器，获得www.amazon.com的IP地址</code></pre><p>本地 -&gt; 根 -&gt;顶级/权威逐层找！！</p>
+<p>可分为迭代查询、递归查询。</p>
+<h4 id="DNS记录缓存和更新"><a href="#DNS记录缓存和更新" class="headerlink" title="DNS记录缓存和更新"></a>DNS记录缓存和更新</h4><p>​    只要域名解析服务器获得域名—IP映射，即缓存这一映射 。 一段时间过后，缓存条目失效（删除） ； 本地域名服务器一般会缓存顶级域名服务器的映射 , 因此根域名服务器不经常被访问。</p>
+<h4 id="DNS记录"><a href="#DNS记录" class="headerlink" title="DNS记录"></a>DNS记录</h4><p>​    *<em>RR format: *</em>(name, value, type, ttl)</p>
+<pre><code>* 资源记录(RR, resource records) 
+* Type=A   Name: 主机域名  Value: IP地址 
+* Type=NS   Name: 域(edu.cn)   Value: 该域权威域名解析服务 器的主机域名
+* Type=CNAME  Name: 某一真实域名的别名 • www.ibm.com – servereast.backup2.ibm.com  ；Value: 真实域名 
+* Type=MX   Value是与name相对应的邮件 服务器</code></pre><h4 id="DNS协议与消息"><a href="#DNS协议与消息" class="headerlink" title="DNS协议与消息"></a>DNS协议与消息</h4><p>DNS协议：查询(query)和回复(reply消息) ； 消息格式相同。</p>
+<p>消息头部 ：Identification: 16位查询编号，回复使用相同的编号 ；flags 查询或回复 、 期望递归 、 递归可用 、权威回答</p>
+<h4 id="P2P应用：原理与文件分发"><a href="#P2P应用：原理与文件分发" class="headerlink" title="P2P应用：原理与文件分发"></a>P2P应用：原理与文件分发</h4><p>p2p架构：（Peer-to-peer)没有服务器 、任意端系统之间直接通信 、节点阶段性接入Internet 、节点可能更换IP地址</p>
+<p>文件分发：Us: 服务器上传带宽 Ui: 节点i的上传带宽 di: 节点i的下载带宽    </p>
+<p>​    客户机/服务器:</p>
+<p>​                服务器串行地发送N个副本 ,时间： NF/Us</p>
+<p>​                客户机i需要F/di时间下载</p>
+<p>​    p2p:</p>
+<p>​                服务器必须发送一个副本 , 时间： F/Us </p>
+<p>​                客户机i需要F/di时间下载 </p>
+<p>​                总共需要下载NF比特 </p>
+<p>​                最快的可能上传速率：Us + Ui(之和)</p>
+<p>BitTorrent技术</p>
+<h4 id="P2P应用：索引技术"><a href="#P2P应用：索引技术" class="headerlink" title="P2P应用：索引技术"></a>P2P应用：索引技术</h4><p>P2P系统的索引：信息到节点位置(IP地址+端口号)的映射</p>
+<p>文件共享(电驴) ： 利用索引动态跟踪节点所共享的文件的位置； 节点需要告诉索引它拥有哪些文件 ；节点搜索索引，从而获知能够得到哪些文件。</p>
+<p>即时消息(QQ) ： 索引负责将用户名映射到位置 ；当用户开启IM应用时，需要通知索引它的位置 ；节点检索索引，确定用户的IP地址。</p>
+<h5 id="集中式索引"><a href="#集中式索引" class="headerlink" title="集中式索引"></a>集中式索引</h5><p>节点加入时，通知中央服务器： IP地址 ； 内容。</p>
+<p>内容和文件传输是分布式的， 但是内容定位是高度集中式的。</p>
+<p>存在的问题：单点失效问题 ；性能瓶颈 ；版权问题</p>
+<h5 id="洪泛式查询-Query-flooding"><a href="#洪泛式查询-Query-flooding" class="headerlink" title="洪泛式查询: Query flooding"></a>洪泛式查询: Query flooding</h5><p>完全分布式架构 ；Gnutella采用这种架构 ；每个节点对它共享的文件进行索引，且只对它共享的文件进行索引。</p>
+<p>覆盖网络(overlay network): Graph </p>
+<ul>
+<li>节点X与Y之间如果有TCP连接， 那么构成一个边 </li>
+<li>所有的活动节点和边构成覆盖网 络 </li>
+<li>边：虚拟链路 </li>
+<li>节点一般邻居数少于10个</li>
+</ul>
+<p>方式：</p>
+<ul>
+<li>查询消息通过已有的TCP连 接发送</li>
+<li>节点转发查询消息 </li>
+<li>如果查询命中，则利用反向 路径发回查询节点</li>
+</ul>
+<h5 id="层次式覆盖网络"><a href="#层次式覆盖网络" class="headerlink" title="层次式覆盖网络"></a>层次式覆盖网络</h5><p>介于集中式索引和洪泛查询之间的方法 </p>
+<p>每个节点或者是一个超级节点，或者被分配一个超级节点 ， 节点和超级节点间维持TCP连接 ， 某些超级节点对之间维持TCP连接 ；超级节点负责跟踪子节点的内容。</p>
+<hr>
+<h4 id="Socket编程-应用编程接口（API）"><a href="#Socket编程-应用编程接口（API）" class="headerlink" title="Socket编程-应用编程接口（API）"></a>Socket编程-应用编程接口（API）</h4><p><strong>应用编程接口 API (Application Programming Interface)</strong>：就是应用进程的控制权和操作系统的控制 权进行转换的一个系统调用接口.（应用层和传输层之间）</p>
+<p><strong><em>应用进程间通信的抽象机制</em></strong></p>
+<p>对外：标识通信端点  ； IP地址+端口号</p>
+<p>对内:   操作系统/进程利用套接字描述符（socket descriptor） 管理套接字（通常是小整数）</p>
+<h5 id="Socket抽象"><a href="#Socket抽象" class="headerlink" title="Socket抽象"></a>Socket抽象</h5><p> 类似于文件的抽象 ； 当应用进程创建套接字时，操作系统分配一个数据结构存 储该套接字相关信息 ； 返回套接字描述符。</p>
+<p>操作系统中存在Socket描述符表 (每个进程一个)，表内内容分别指向其他 socket数 据结构。</p>
+<h5 id="地址结构"><a href="#地址结构" class="headerlink" title="地址结构"></a>地址结构</h5><p>已定义结构sockaddr_in: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr_in</span><br><span class="line">&#123;</span><br><span class="line">u_char sin_len; &#x2F;*地址长度 *&#x2F;</span><br><span class="line">u_char sin_family; &#x2F;*地址族(TCP&#x2F;IP：AF_INET) *&#x2F;</span><br><span class="line">u_short sin_port; &#x2F;*端口号 *&#x2F;</span><br><span class="line">struct in_addr sin_addr; &#x2F;*IP地址 *&#x2F;</span><br><span class="line">char sin_zero[8]; &#x2F;*未用(置0) *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用TCP/IP协议簇的网络应用程序声明端点地址 变量时，使用结构sockaddr_in</p>
+<h5 id="Socket-API函数"><a href="#Socket-API函数" class="headerlink" title="Socket API函数"></a>Socket API函数</h5><p><strong>创建函数：</strong></p>
+<p>​    <code>sd = socket(protofamily,type,proto);</code></p>
+<p>​    创建套接字 :</p>
+<ul>
+<li>操作系统返回套接字描述符（sd） </li>
+<li>第一个参数(协议族): protofamily = PF_INET（TCP/IP） </li>
+<li>第二个参数(套接字类型):  type = SOCK_STREAM,SOCK_DGRAM or SOCK_RAW（TCP/IP） </li>
+<li>第三个参数(协议号):0为默认</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例：创建一个流套接字的代码段 </span><br><span class="line">struct protoent *p;</span><br><span class="line">p&#x3D;getprotobyname(&quot;tcp&quot;); SOCKET sd&#x3D;socket(PF_INET,SOCK_STREAM,p-&gt;p_proto);</span><br></pre></td></tr></table></figure>
+
+<p><strong>绑定函数：</strong></p>
+<p>​    <code>int bind(sd,localaddr,addrlen);</code></p>
+<ul>
+<li>绑定套接字的本地端点地址 :IP地址+端口号 </li>
+<li>参数:  套接字描述符（sd）  端点地址（localaddr)- 结构sockaddr_in </li>
+<li>客户程序一般不必调用bind函数 </li>
+<li>服务器端需要， 熟知端口号 以及 IP地址</li>
+</ul>
+<p><strong>关闭函数：</strong></p>
+<p><code>int closesocket(SOCKET sd);</code></p>
+<ul>
+<li>关闭一个描述符为sd的套接字 </li>
+<li>如果多个进程共享一个套接字，调用closesocket 将套接字引用计数减1，减至0才关闭 </li>
+<li>一个进程中的多线程对一个套接字的使用无计数 ; 如果进程中的一个线程调用closesocket将一个套接字 关闭，该进程中的其他线程也将不能访问该套接字 </li>
+<li>返回值：  0：成功   SOCKET_ERROR：失败</li>
+</ul>
+<p><strong>监听函数：</strong></p>
+<p>​    <code>int listen(sd,queuesize);</code></p>
+<ul>
+<li>置服务器端的流套接字处于监听状态 :仅服务器端调用 ; 仅用于面向连接的流套接字 </li>
+<li>设置连接请求队列大小（queuesize） </li>
+<li>返回值：  0：成功   SOCKET_ERROR：失败</li>
+</ul>
+<p><strong>连接函数：</strong></p>
+<p>​    <code>connect(sd,saddr,saddrlen);</code></p>
+<ul>
+<li>客户程序调用connect函数来使 客户套接字（sd）与特定计算机 的特定端口（saddr）的套接字 （服务）进行连接</li>
+<li>仅用于客户端  可用于TCP客户端也可以用于 UDP客户端 ; TCP客户端：建立TCP连接 ; UDP客户端：指定服务器端点地址</li>
+</ul>
+<p><strong>accept函数：</strong></p>
+<p>​    <code>newsock = accept(sd,caddr,caddrlen);</code></p>
+<ul>
+<li>服务程序调用accept函数从 处于监听状态的流套接字sd 的客户连接请求队列中取出 排在最前的一个客户请求， 并且创建一个新的套接字来 与客户套接字创建连接通道 ; 仅用于TCP套接字 ; 仅用于服务器 </li>
+<li>利用新创建的套接字 （newsock）与客户通信</li>
+</ul>
+<p><strong>send, sendto函数：</strong></p>
+<p>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send(sd,*buf,len,flags); sendto(sd,*buf,len,flags,destaddr,addrlen);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>send函数TCP套接字（客户与服务器）或调用了 connect函数的UDP客户端套接字 </li>
+<li>sendto函数用于UDP服务器端套接字与未调用 connect函数的UDP客户端套接字</li>
+</ul>
+<p><strong>recv, recvfrom函数：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">recv(sd,*buffer,len,flags);</span><br><span class="line">recvfrom(sd,*buf,len,flags,senderaddr,saddrlen);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>recv函数从TCP连接的另一端接收数据，或者从 调用了connect函数的UDP客户端套接字接收服务 器发来的数据 </li>
+<li>recvfrom函数用于从UDP服务器端套接字与未调 用connect函数的UDP客户端套接字接收对端数据</li>
+</ul>
+<p><strong>setsockopt, getsockopt函数：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int setsockopt(int sd, int level, int optname, *optval, int optlen);</span><br><span class="line"></span><br><span class="line">int getsockopt(int sd, int level, int optname,</span><br><span class="line">*optval, socklen_t *optlen);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>setsockopt()函数用来设置套接字sd的选项参数 </li>
+<li>getsockopt()函数用于获取任意类型、任意状态套 接口的选项当前值，并把结果存入optval</li>
+</ul>
+<h5 id="Socket服务类型："><a href="#Socket服务类型：" class="headerlink" title="Socket服务类型："></a>Socket服务类型：</h5><p>面向传输层时</p>
+<p>​    TCP：可靠、面向连接、字节流传输、点对点  SOCK_STREAM</p>
+<p>​    UDP：不可靠、无连接、数据报传输    SOCK_DGRAM</p>
+<p>直接面向网络层时SOCK_RAW</p>
+<h4 id="Socket-API函数小结"><a href="#Socket-API函数小结" class="headerlink" title="Socket API函数小结"></a>Socket API函数小结</h4><ul>
+<li>WSAStartup: 初始化socket库(仅对WinSock) </li>
+<li>WSACleanup: 清楚/终止socket库的使用 (仅对WinSock) </li>
+<li>socket: 创建套接字 </li>
+<li>connect:“连接”远端服务器 (仅用于客户端) </li>
+<li>closesocket: 释放/关闭套接字 </li>
+<li>bind: 绑定套接字的本地IP地址和端口号（通常客户端不 需要） </li>
+<li>listen: 置服务器端TCP套接字为监听模式，并设置队列 大小 (仅用于服务器端TCP套接字) </li>
+<li>accept: 接受/提取一个连接请求，创建新套接字，通过新 套接 (仅用于服务器端的TCP套接字) </li>
+<li>recv: 接收数据（用于TCP套接字或连接模式的客户端 UDP套接字）</li>
+<li>recvfrom: 接收数据报（用于非连接模式的UDP套接字） </li>
+<li>send: 发送数据（用于TCP套接字或连接模式的客户端 UDP套接字） </li>
+<li>sendto:发送数据报（用于非连接模式的UDP套接字） </li>
+<li>setsockopt: 设置套接字选项参数 </li>
+<li>getsockopt: 获取套接字选项参数</li>
+</ul>
+<h4 id="网络字节顺序"><a href="#网络字节顺序" class="headerlink" title="网络字节顺序"></a>网络字节顺序</h4><p>TCP/IP定义了标准的用于协议头中的二进制整 数表示：网络字节顺序（network byte order） </p>
+<p>某些Socket API函数的参数需要存储为网络字 节顺序（如IP地址、端口号等） </p>
+<p>可以实现本地字节顺序与网络字节顺序间转换 的函数 </p>
+<ul>
+<li>htons: 本地字节顺序→网络字节顺序(16bits) </li>
+<li>ntohs: 网络字节顺序→本地字节顺序(16bits) </li>
+<li>htonl: 本地字节顺序→网络字节顺序(32bits) </li>
+<li>ntohl: 网络字节顺序→本地字节顺序(32bits)</li>
+</ul>
+<h5 id="网络应用的Socket-API-TCP-调用基本流程"><a href="#网络应用的Socket-API-TCP-调用基本流程" class="headerlink" title="网络应用的Socket API(TCP)调用基本流程"></a>网络应用的Socket API(TCP)调用基本流程</h5><table>
+<thead>
+<tr>
+<th align="center">CLENT</th>
+<th></th>
+<th>SERVER</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">WSAStartup</td>
+<td></td>
+<td>WSAStartup</td>
+</tr>
+<tr>
+<td align="center">s=socket()</td>
+<td></td>
+<td>s=socket()</td>
+</tr>
+<tr>
+<td align="center">*connect(s)   @1&lt;</td>
+<td>请求连接|连接确认</td>
+<td>bind(s)</td>
+</tr>
+<tr>
+<td align="center">send(s) @2</td>
+<td>@2Send a Request</td>
+<td>listen(s)</td>
+</tr>
+<tr>
+<td align="center">*recv(s) @3&lt;</td>
+<td>@3 Receive the Response</td>
+<td>&gt;@ 1 ns=accept(s)*</td>
+</tr>
+<tr>
+<td align="center">closesocket(s)</td>
+<td></td>
+<td>&gt;@2 recv(ns)</td>
+</tr>
+<tr>
+<td align="center">WSACleanup</td>
+<td></td>
+<td>&lt; @3send(ns)</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+<td>closesocket(ns)*</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td>*表示阻塞</td>
+<td>WSACleanup</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p>传输层服务的基本理论和基本机制 ：</p>
+<pre><code>* 复用/分用 
+* 可靠数据传输机制 
+*  流量控制机制 
+*  拥塞控制机制</code></pre><p>Internet的传输层协议：</p>
+<pre><code>* UDP：无连接传输服务 
+*  TCP：面向连接的传输服务 
+*  TCP拥塞控制</code></pre><hr>
+<p>传输层协议为运行在不同Host上的进程 提供了一种逻辑通信机制 </p>
+<p>端系统运行传输层协议 – 发送方：将应用递交的消息分成一个或多 个的Segment，并向下传给网络层。  接收方：将接收到的segment组装成消息， 并向上交给应用层。 </p>
+<p>传输层可以为应用提供多种协议</p>
+<p>传输层：<strong>提供应用进程之间的逻 辑通信机制</strong> 。 位于网络层之上 ， 依赖于网络层服务 ， 对网络层服务进行（可能的）增强。</p>
+<hr>
+<h3 id="Internet传输层协议"><a href="#Internet传输层协议" class="headerlink" title="Internet传输层协议"></a>Internet传输层协议</h3><ul>
+<li>可靠、按序的交付服务(TCP) ： 拥塞控制 ； 流量控制 ； 连接建立 </li>
+<li>不可靠的交付服务(UDP) ： 基于“尽力而为(Best-effort)”的网络层 ，没有做（可靠性方面的）扩展 </li>
+<li>两种服务均不保证 ： 延迟 、 带宽</li>
+</ul>
+<hr>
+<h3 id="多路复用-分用"><a href="#多路复用-分用" class="headerlink" title="多路复用/分用"></a>多路复用/分用</h3><p>如果某层的一个协议对应直接上层的多个协议/实 体，则需要复用/ 分用</p>
+<p><strong>发送端进行多路复用:</strong>    从多个Socket接收数据，为每块数据封装上头部信息，生成 Segment，交给网络层</p>
+<p><strong>接收端进行多路分用:</strong>    传输层依据头部信息将收到的 Segment交给正确的Socket， 即不同的进程。</p>
+<h4 id="分用工作方式"><a href="#分用工作方式" class="headerlink" title="分用工作方式"></a>分用工作方式</h4><ol>
+<li>主机接收到IP数据报(datagram) 。 每个数据报携带源IP地址、目的IP地址。  每个数据报携带一个传输层的段(Segment ）。每个段携带源端口号和目的端口号 </li>
+<li>主机收到Segment之后，传输层协议提取IP地址和端口号信息，将Segment导向相应的Socket ； TCP做更多处理</li>
+</ol>
+<h5 id="无连接分用"><a href="#无连接分用" class="headerlink" title="无连接分用"></a>无连接分用</h5><ol>
+<li><p>利用端口号创建Socket</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DatagramSocket mySocket1 &#x3D; new 	 DatagramSocket(99111);</span><br><span class="line"></span><br><span class="line">DatagramSocket mySocket2 &#x3D; new DatagramSocket(99222);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UDP的Socket用二元组标识 (目的IP地址，目的端口号)</p>
+</li>
+<li><p>主机收到UDP段后 ，检查段中的目的端口号 ， 将UDP段导向绑定在该端口号的 Socket </p>
+</li>
+<li><p>来自不同源IP地址和/或源端口号的 IP数据包被导向同一个Socket</p>
+</li>
+</ol>
+<h5 id="面向连接的分用"><a href="#面向连接的分用" class="headerlink" title="面向连接的分用"></a>面向连接的分用</h5><ol>
+<li>TCP的Socket用四元组标识 : 源IP地址 、源端口号 、 目的IP地址 、 目的端口号 </li>
+<li>接收端利用所有的四个值将 Segment导向合适的Socket</li>
+<li>服务器可能同时支持多个TCP Socket ， 每个Socket用自己的四元组标识 </li>
+<li>Web服务器为每个客户端开不同的 Socke</li>
+</ol>
+<p>例：多线程Web服务。</p>
+<hr>
+<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><p>UDP: User Datagram Protocol [RFC 768]</p>
+<p>存在原因：无需建立连接 (减 少延迟) ； 实现简单：无需维护连接状态 ；头部开销少 ；没有拥塞控制: 应用可更好地控制发送时间和速率</p>
+<ul>
+<li>基于Internet IP协议 ：复用/分用 ； 简单的错误校验 </li>
+<li>“Best effort”服务，UDP段可能 丢失 或 非按序到达 </li>
+<li>无连接 ：UDP发送方和接收方之间不需要握手 ；每个UDP段的处理独立于其他段</li>
+<li>常用于流媒体应用 ： 容忍丢失 、 速率敏感 </li>
+<li>UDP还用于  DNS 、 SNMP </li>
+<li>在UDP上实现可靠数据传输依赖：在应用层增加可靠性机制 ；应用特定的错误恢复机制</li>
+</ul>
+<p>格式：</p>
+<table>
+<thead>
+<tr>
+<th align="right">源端口</th>
+<th>目的端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">长度</td>
+<td>校验和</td>
+</tr>
+<tr>
+<td align="right">数据</td>
+<td>报文</td>
+</tr>
+</tbody></table>
+<h4 id="UDP校验和-checksum"><a href="#UDP校验和-checksum" class="headerlink" title="UDP校验和(checksum)"></a>UDP校验和(checksum)</h4><p>目的：检测UDP段在传输中是否发生错误（如位翻转）</p>
+<p>​    发送方 ： 将段的内容视为16-bit整数 ； 校验和计算：计算所有整数的和 ，进位加在和的后面，将得到的值按位求反，得到校验和 <em>（最高位进位必须被加进去）</em>；发送方将校验和放入校验和字段</p>
+<p>​    接收方 ： 计算所收到段的校验和 ； 将其与校验和字段进行对比 ， 不相等：检测出错误 • 相等：没有检测出错误（但可能有错误）</p>
+<hr>
+<h3 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h3><p>不错、不丢、不乱=可靠。</p>
+<p><strong><em>基本结构：接口</em></strong></p>
+<table>
+<thead>
+<tr>
+<th>发送方</th>
+<th>data</th>
+<th>rdt_send()</th>
+<th></th>
+<th>packet</th>
+<th>udt_send(</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unreliable channel</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>接收方</td>
+<td>packet</td>
+<td>rdt_rcv()</td>
+<td></td>
+<td>data</td>
+<td>deliver_data()</td>
+</tr>
+</tbody></table>
+<p>rdt_send():被上次应用调用，将 数据交给rdt以发送给对方</p>
+<p>udt_send(): 被rdt调用，在不 可靠信道上向接收方传输数据</p>
+<p>rdt_rcv(): 当数据包到达接收方信 道时被调用</p>
+<p>deliver_data(): 被rdt调 用，向上层应用交付数据</p>
+<h4 id="可靠数据传输协议"><a href="#可靠数据传输协议" class="headerlink" title="可靠数据传输协议"></a>可靠数据传输协议</h4><ul>
+<li><p>渐进地设计可靠数据传输协议的发送方和接收方 </p>
+</li>
+<li><p>只考虑单向数据传输 ,但控制信息双向流动 </p>
+</li>
+<li><p>利用状态机(Finite State Machine, FSM)刻画传输协议</p>
+</li>
+</ul>
+<h4 id="Rdt-1-0-可靠信道上的可靠数据传输"><a href="#Rdt-1-0-可靠信道上的可靠数据传输" class="headerlink" title="Rdt 1.0: 可靠信道上的可靠数据传输"></a>Rdt 1.0: 可靠信道上的可靠数据传输</h4><p> 底层信道完全可靠 :不会发生错误(bit error) ;不会丢弃分组 </p>
+<p>发送方和接收方的FSM独立</p>
+<h4 id="Rdt-2-0"><a href="#Rdt-2-0" class="headerlink" title="Rdt 2.0"></a>Rdt 2.0</h4><ul>
+<li>底层信道可能翻转分组中的位(bit) : 利用校验和检测位错误 </li>
+<li>如何从错误中恢复？  确认机制(Acknowledgements, ACK): 接收方显式地告知发送方分组已正确接收 ; NAK:接收方显式地告知发送方分组有错误 ; 发送方收到NAK后，重传分组 </li>
+<li>基于这种重传机制的rdt协议称为ARQ(Automatic Repeat reQuest)协议 </li>
+<li>Rdt 2.0中引入的新机制 : 差错检测; 接收方反馈控制消息: ACK/NAK ;重传</li>
+</ul>
+<p>Rdt 2.0: FSM规约 采用<strong>停-等</strong>协议</p>
+<p>​                Sender sends one packet, then waits for receiver response 。</p>
+<p>存在缺陷：</p>
+<ul>
+<li>如果ACK/NAK消息发生错误/被破坏(corrupted)会怎么样？ <ul>
+<li>为ACK/NAK增加校验和，检错并纠错 。</li>
+<li>发送方收到被破坏ACK/NAK时不知道接收方发生了什么，        添加额外的控制消 息 。</li>
+<li>如果ACK/NAK坏掉，发送方重传 。</li>
+<li>不能简单的重传：产生重复分组 。</li>
+</ul>
+</li>
+<li>如何解决重复分组问题？ <ul>
+<li>序列号(Sequence number): 发送方给每个分组增加序列号 </li>
+<li>接收方丢弃重复分组</li>
+</ul>
+</li>
+</ul>
+<h4 id="Rdt-2-1"><a href="#Rdt-2-1" class="headerlink" title="Rdt 2.1"></a>Rdt 2.1</h4><p>发送方： </p>
+<ul>
+<li>为每个分组增加了序列号 </li>
+<li>两个序列号(0, 1)就够 </li>
+<li>需校验ACK/NAK消息是否发生错误 </li>
+<li>状态数量翻倍 ；状态必须“记住” “当前”的分组序列号</li>
+</ul>
+<p>接收方 </p>
+<ul>
+<li>需判断分组是否是重复 ；当前所处状态提供了期望收到分组 的序列号 </li>
+<li>注意：接收方无法知道ACK/NAK 是否被发送方正确收到</li>
+</ul>
+<h4 id="Rdt-2-2-无NAK消息协议"><a href="#Rdt-2-2-无NAK消息协议" class="headerlink" title="Rdt 2.2: 无NAK消息协议"></a>Rdt 2.2: 无NAK消息协议</h4><p>与rdt 2.1功能相同，但是只使用ACK </p>
+<p> 如何实现？</p>
+<p>​     接收方通过ACK告知最后一个被正确接收的分组 ；在ACK消息中显式地加入被确认分组的序列号 。</p>
+<p> 发送方收到重复ACK之后，采取与收到NAK消息相同的动作 ； 重传当前分组。</p>
+<h4 id="Rdt-3-0"><a href="#Rdt-3-0" class="headerlink" title="Rdt 3.0"></a>Rdt 3.0</h4><p>方法：</p>
+<p>​        发送方等待“合理”时间 </p>
+<p>​         如果没收到ACK，重传 : 如果分组或ACK只是延迟而不是丢了             重传会产生重复，序列号机制能够处理 ;接收方需在ACK中            显式告知所确认的分组 </p>
+<p>​         需要定时器</p>
+<p>Rdt 3.0能够正确工作，但性能很差</p>
+<hr>
+<h3 id="流水线机制与滑动窗口协议"><a href="#流水线机制与滑动窗口协议" class="headerlink" title="流水线机制与滑动窗口协议"></a>流水线机制与滑动窗口协议</h3><p>流水线机制：提高资源利用率</p>
+<h4 id="流水线协议"><a href="#流水线协议" class="headerlink" title="流水线协议"></a>流水线协议</h4><p>​        允许发送方在收到ACK之前连续发送多个分组 。 具有更大的序列号范围 ; 发送方和/或接收方需要更大的存储空间以缓存分组。</p>
+<h4 id="滑动窗口协议"><a href="#滑动窗口协议" class="headerlink" title="滑动窗口协议"></a>滑动窗口协议</h4><p>​    滑动窗口协议: Sliding-window protocol </p>
+<p>​    窗口 ： 允许使用的序列号范围 ； 窗口尺寸为N：最多有N个等                待确认的消息 </p>
+<p>​    滑动窗口 ： 随着协议的运行，窗口在序列号空间内向前滑动 </p>
+<p>​    滑动窗口协议：GBN, SR</p>
+<h5 id="GBN"><a href="#GBN" class="headerlink" title="GBN"></a>GBN</h5><p>​    Go-Back-N协议</p>
+<p>发送方：</p>
+<ul>
+<li>分组头部包含k-bit序列号 </li>
+<li>窗口尺寸为N，最多允许N个分组未确认</li>
+<li>ACK(n): 确认到序列号n(包含n)的分组均已被正确接收 ；可能收到重复ACK </li>
+<li>为空中的分组设置计时器(timer) </li>
+<li>超时Timeout(n)事件: 重传序列号大于等于n，还未收到ACK的所有分组</li>
+</ul>
+<p>接收方：</p>
+<ul>
+<li>ACK机制: 发送拥有最高序列号的、已被正确接收的分组的                ACK ；可能产生重复ACK ； 只需要记住唯一的                expectedseqnum </li>
+<li>乱序到达的分组： <ul>
+<li>直接丢弃–&gt;接收方没有缓存 </li>
+<li>重新确认序列号最大的、按序到达的分组</li>
+</ul>
+</li>
+</ul>
+<p>GBN缺陷：</p>
+<pre><code>* 接收方对每个分组单独进行确认 ； 设置缓存机制，缓存乱序到达的分组 
+
+* 发送方只重传那些没收到ACK的分组 ： 为每个分组设置定时器 
+* 发送方窗口 ： N个连续的序列号 ；限制已发送且未确认的分组</code></pre><h5 id="SR"><a href="#SR" class="headerlink" title="SR"></a>SR</h5><p>Selective Repeat协议</p>
+<p>sender：</p>
+<ul>
+<li>data from above :  if next available seq # in window, send pkt </li>
+<li>timeout(n):  resend pkt n, restart timer</li>
+<li>ACK(n) in [sendbase,sendbase+N]: <ul>
+<li>mark pkt n as received </li>
+<li>if n smallest unACKed pkt, advance window base to next unACKed seq # </li>
+</ul>
+</li>
+</ul>
+<p>receiver：</p>
+<ul>
+<li><p>pkt n in [rcvbase, rcvbase+N-1] </p>
+<ul>
+<li>send ACK(n) </li>
+<li>out-of-order: buffer </li>
+<li>in-order: deliver (also deliver buffered, in-order pkts), advance window to next not-yet-received pkt</li>
+</ul>
+</li>
+<li><p>pkt n in [rcvbase-N,rcvbase-1] ：ACK(n) </p>
+</li>
+<li><p>otherwise:  ignore </p>
+</li>
+</ul>
+<hr>
+
       
 
       
@@ -895,6 +1331,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/09/13/2xtree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2xtree
+        
+      </div>
+    </a>
   
   
     <a href="/2019/12/27/%E7%AE%97%E6%B3%95%E5%A4%8D%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -1037,7 +1482,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,6 +1491,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
