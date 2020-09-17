@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | LILINKUN</title>
+  <title>进程相关 | LILINKUN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="1.程序和进程​    程序： 二进制文件，占用磁盘空间 ​    进程:启动的程序  ,所有数据都在内存中，需要占用更多系统资源(cpu,物理内存)。 2.并行和并发​    并行(parallel)：指在同一时刻，有多条指令在多个处理器上同时执行。所以无论从微观还是从宏观来看，二者都是一起执行的 ​    并发(concurrency)：指在同一时刻只能有一条指令执行，但多个进程指令被快速">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/06/03/hello-world/index.html">
+<meta property="og:title" content="进程相关">
+<meta property="og:url" content="http://yoursite.com/2020/09/17/%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="LILINKUN">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="1.程序和进程​    程序： 二进制文件，占用磁盘空间 ​    进程:启动的程序  ,所有数据都在内存中，需要占用更多系统资源(cpu,物理内存)。 2.并行和并发​    并行(parallel)：指在同一时刻，有多条指令在多个处理器上同时执行。所以无论从微观还是从宏观来看，二者都是一起执行的 ​    并发(concurrency)：指在同一时刻只能有一条指令执行，但多个进程指令被快速">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-06-03T03:50:55.862Z">
-<meta property="article:modified_time" content="2019-06-03T03:50:55.862Z">
+<meta property="article:published_time" content="2020-09-17T06:58:32.000Z">
+<meta property="article:modified_time" content="2020-09-17T09:52:55.464Z">
 <meta property="article:author" content="LINKUN LI">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LILINKUN" type="application/atom+xml">
@@ -144,40 +145,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-进程相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      进程相关
     </h1>
   
 
         
-        <a href="/2019/06/03/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-03T03:50:55.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-03</time>
+        <a href="/2020/09/17/%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+  	<time datetime="2020-09-17T06:58:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h2 id="1-程序和进程"><a href="#1-程序和进程" class="headerlink" title="1.程序和进程"></a>1.程序和进程</h2><p>​    程序： 二进制文件，占用磁盘空间</p>
+<p>​    进程:<strong>启动的程序</strong>  ,所有数据都在内存中，需要占用更多系统资源(cpu,物理内存)。</p>
+<h2 id="2-并行和并发"><a href="#2-并行和并发" class="headerlink" title="2.并行和并发"></a>2.并行和并发</h2><p>​    并行(parallel)：指在<strong>同一时刻，有多条指令在多个处理器上同时执行</strong>。所以无论从微观还是从宏观来看，二者都是一起执行的</p>
+<p>​    并发(concurrency)：指在<strong>同一时刻只能有一条指令执行</strong>，但多个进程指令被快速的轮换执行，使得在宏观上具有多个进程同时执行的效果，但在微观上并不是同时执行的，只是把时间分成若干段，使多个进程快速交替的执行。</p>
+<h2 id="3-PCB"><a href="#3-PCB" class="headerlink" title="3.PCB"></a>3.PCB</h2><p>​    pcb块存储进程状态信息</p>
+<h2 id="4-进程状态"><a href="#4-进程状态" class="headerlink" title="4.进程状态"></a>4.进程状态</h2><p>​    初始态-&gt;就绪态（等待cpu）-&gt;运行态（获得CPU）-&gt;挂起态（等待cpu）</p>
+<h2 id="5-fork（）"><a href="#5-fork（）" class="headerlink" title="5.fork（）"></a>5.fork（）</h2><p>进程创建   pid_t  fork(void);  有两个返回值。</p>
+<p>父进程创建子进程 父进程返回子进程id和子进程返回0.  &gt;0 父进程返回值，=0子进程返回值。通过fork函数返回值判断父子进程。</p>
+<p>父进程创建的子进程 从父进程当前执行位置开始执行。创建之前的地址空间用户区数据完全相同（读时共享、写时复制成新数据) ，创建之后的地址空间数据是相互独立的。<strong>不能通过全局变量实现父子进程间数据共享</strong>。</p>
+<p>父进程、子进程执行顺序不一定 有CPU资源决定。</p>
+<p>getpid ()得到当前进程pid</p>
+<p>getppid()得到当前进程的父进程的pid</p>
+<h2 id="6-ps-和-kill"><a href="#6-ps-和-kill" class="headerlink" title="6.ps 和 kill"></a>6.ps 和 kill</h2><p>ps:查看正在进行的进程 ps aux|grep …  /  ps ajx</p>
+<p>kill：杀掉指定进程 kill  -9(SIGKILL)  pid</p>
+<h2 id="7-exec函数族"><a href="#7-exec函数族" class="headerlink" title="7.exec函数族"></a>7.exec函数族</h2><p>让父子进程执行不相干的操作。</p>
+<p>使<strong>子进程</strong> <em>实现换核不换壳的功能；执行另一个程序不需要创建额外的地址空间；可实现有一个运行的程序a，在a中调用另外应用程序b</em></p>
+<ul>
+<li>让父子进程执行不相干操作</li>
+<li>替换进程地址空间中的源代码.txt段</li>
+<li>当前程序中调用另一个应用程序（exec之前要fork）。调用函数执行成功 不返回 ，若失败打印当前错误信息，退出进程</li>
+</ul>
+<p>int execl()…多用来调用自己程序  第二个参数为占位参数。</p>
+<p>int execlp()…系统自带程序</p>
+<p>…</p>
+<h2 id="8-进程回收"><a href="#8-进程回收" class="headerlink" title="8.进程回收"></a>8.进程回收</h2><h5 id="1）-孤儿进程"><a href="#1）-孤儿进程" class="headerlink" title="1） 孤儿进程"></a>1） 孤儿进程</h5><pre><code>* 爹生孩子
+* 爹先死，孩子还活着，孩子叫孤儿进程</code></pre><ul>
+<li>孤儿被init进程领养，init进程成为孤儿进程的父亲<pre><code>* 为了释放子进程占用的系统资源
+* 进程结束后 ，能释放用户区空间但释放不了pcb
+* pcb必须由父进程释放</code></pre></li>
+</ul>
+<h5 id="2）僵尸进程"><a href="#2）僵尸进程" class="headerlink" title="2）僵尸进程"></a>2）僵尸进程</h5><ul>
+<li>孩子死，父亲还活着，爹不去释放子进程的pcb，孩子成为僵尸进程</li>
+<li>是一个死掉的进程</li>
+</ul>
+<h5 id="3-进程回收"><a href="#3-进程回收" class="headerlink" title="3)进程回收"></a>3)进程回收</h5><ul>
+<li>wait  阻塞函数<ul>
+<li>pid_t wait(int * status);</li>
+<li>返回值： -1 回收失败，子进程不存在  &gt;0 回收的子进程的pid</li>
+<li>每次调用只回收一次</li>
+</ul>
+</li>
+<li>waitpid<ul>
+<li>pid_t  waitpid(pit_t pid, int* status,int  options);</li>
+</ul>
+</li>
+</ul>
+<h4 id><a href="#" class="headerlink" title></a></h4>
       
 
       
@@ -211,6 +247,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -261,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/03/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/17/%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,15 +322,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/04/linux_%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/17/test/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          linux 系统编程 
+          test
         
       </div>
     </a>
   
+  
+    <a href="/2020/09/13/2xtree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2xtree</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -420,7 +472,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,7 +480,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
